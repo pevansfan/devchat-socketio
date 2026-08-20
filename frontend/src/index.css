@@ -1,0 +1,342 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+:root {
+  /* -------------------------
+     Brand colors
+     ------------------------- */
+
+  --primary: #00f0ff;
+  --primary-foreground: #0f172a;
+
+  --secondary: #10b981;
+  --secondary-foreground: #0f172a;
+
+  --tertiary: #6366f1;
+  --tertiary-foreground: #ffffff;
+
+  /* -------------------------
+     Main colors
+     ------------------------- */
+
+  --background: #0f172a;
+  --foreground: #dbe4f5;
+
+  --card: #182136;
+  --card-foreground: #dbe4f5;
+
+  --popover: #182136;
+  --popover-foreground: #dbe4f5;
+
+  /* -------------------------
+     UI
+     ------------------------- */
+
+  --muted: #202a3e;
+  --muted-foreground: #8b97aa;
+
+  --accent: #263149;
+  --accent-foreground: #dbe4f5;
+
+  --destructive: #ff6b6b;
+  --destructive-foreground: #ffffff;
+
+  --border: #293550;
+  --input: #293550;
+
+  --ring: #00f0ff;
+
+  /* -------------------------
+     Charts
+     ------------------------- */
+
+  --chart-1: #00f0ff;
+  --chart-2: #10b981;
+  --chart-3: #6366f1;
+  --chart-4: #a5b4fc;
+  --chart-5: #94a3b8;
+
+  /* -------------------------
+     Sidebar
+     ------------------------- */
+
+  --sidebar: #111a2e;
+  --sidebar-foreground: #dbe4f5;
+
+  --sidebar-primary: #00f0ff;
+  --sidebar-primary-foreground: #0f172a;
+
+  --sidebar-accent: #202a3e;
+  --sidebar-accent-foreground: #dbe4f5;
+
+  --sidebar-border: #293550;
+  --sidebar-ring: #00f0ff;
+
+  /* -------------------------
+     Radius
+     ------------------------- */
+
+  --radius: 0.75rem;
+
+  /* -------------------------
+     Typography
+     ------------------------- */
+
+  --font-sans: "Geist Variable", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-heading: "Geist Variable", sans-serif;
+
+  /* -------------------------
+     Custom colors
+     ------------------------- */
+
+  --text: #dbe4f5;
+  --text-muted: #8b97aa;
+  --surface: #182136;
+  --surface-hover: #202a3e;
+}
+
+
+/* =========================================================
+   TAILWIND THEME
+   ========================================================= */
+
+@theme inline {
+  /* Typography */
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-heading);
+
+  /* Colors */
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-foreground: var(--tertiary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Charts */
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar */
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radius */
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    background: var(--background);
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--background);
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--foreground);
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+code,
+pre,
+.mono {
+  font-family: var(--font-mono);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #293550;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b4966;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(0, 240, 255, 0.25);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   CUSTOM UTILITIES
+   ========================================================= */
+
+@layer utilities {
+  .text-tertiary {
+    color: var(--tertiary);
+  }
+
+  .bg-tertiary {
+    background-color: var(--tertiary);
+  }
+
+  .border-tertiary {
+    border-color: var(--tertiary);
+  }
+
+  .surface {
+    background-color: var(--surface);
+  }
+
+  .surface-hover:hover {
+    background-color: var(--surface-hover);
+  }
+
+  .glow-primary {
+    box-shadow:
+      0 0 20px rgba(0, 240, 255, 0.15),
+      0 0 40px rgba(0, 240, 255, 0.08);
+  }
+
+  .glow-tertiary {
+    box-shadow:
+      0 0 20px rgba(99, 102, 241, 0.2),
+      0 0 40px rgba(99, 102, 241, 0.1);
+  }
+}

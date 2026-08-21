@@ -17,6 +17,11 @@ export const Room = sequelize.define(
       unique: true,
     },
 
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+
     slug: {
       type: DataTypes.STRING(50),
       allowNull: false,

@@ -1,10 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+import App from "./App";
+import { AuthProvider } from "@/provider/AuthProvider";
+import { RoomProvider } from "./provider/RoomProvider";
+import './index.css'
+
+ReactDOM.createRoot(
+  document.getElementById("root")!,
+).render(
+  <React.StrictMode>
+    <AuthProvider>
+      <RoomProvider>
+        <App />
+      </RoomProvider>
+    </AuthProvider>
+  </React.StrictMode>,
+);

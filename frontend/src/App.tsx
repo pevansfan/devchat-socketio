@@ -1,24 +1,27 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
+import { BrowserRouter, Route, Routes } from "react-router";
 
-// function Home() {
-//   return (
-//     <main>
-//       <h1 className="text-3xl font-bold underline">
-//         Hello world!
-//       </h1>
-//     </main>
-//   );
-// }
+import Login from "@/pages/Login";
+import Test from "@/pages/Test";
+import RoomChat from "@/pages/RoomChat";
 
-function App() {
+import ProtectedRoute from "@/routes/ProtectedRoute";
+import PublicRoute from "@/routes/PublicRoute";
+
+export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        {/* Routes accessibles uniquement sans session */}
+        <Route element={<PublicRoute />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+
+        {/* Routes accessibles uniquement avec une session */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/test" element={<Test />} />
+          <Route path="/rooms/:roomId" element={<RoomChat />} />
+        </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
-
-export default App;
